@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NeinCoin - The Meme Coin That Says NO</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px 25px;
+      color: #fff;
+      background: url('https://i.imgur.com/Wm0Hf5B.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      z-index: 0;
+      user-select: none;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0,0,0,0.7);
+      z-index: -1;
+    }
+
+    /* Marquee bar style */
+    #marqueeBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 30px;
+      background-color: rgba(153, 0, 0, 0.9);
+      overflow: hidden;
+      z-index: 9999;
+      box-shadow: 0 0 10px #ff0000cc;
+      user-select: none;
+      font-weight: 700;
+      font-size: 1.1em;
+      color: #ffaaaa;
+      display: flex;
+      align-items: center;
+    }
+    #marqueeText {
+      white-space: nowrap;
+      display: inline-block;
+      padding-left: 100%;
+      animation: marqueeAnim 15s linear infinite;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    @keyframes marqueeAnim {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    header, footer {
+      text-align: center;
+      margin-bottom: 25px;
+      background-color: rgba(153, 0, 0, 0.85);
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #ff0000cc;
+      user-select: text;
+      margin-top: 40px; /* space below marquee */
+    }
+
+    nav a {
+      margin: 0 14px;
+      text-decoration: none;
+      color: #ffaaaa;
+      font-weight: 700;
+      font-size: 1.1em;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+      user-select: text;
+    }
+    nav a:hover {
+      color: #ff4444;
+    }
+
+    h1 {
+      color: #ff0000;
+      font-size: 3em;
+      letter-spacing: 0.15em;
+      text-shadow: 2px 2px 5px #660000aa;
+      user-select: text;
+    }
+
+    section {
+      margin-bottom: 40px;
+      background-color: rgba(102, 0, 0, 0.85);
+      padding: 25px 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #990000cc;
+      user-select: text;
+    }
+
+    h2 {
+      color: #ff3333;
+      font-size: 2em;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      user-select: text;
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      user-select: text;
+    }
+
+    button {
+      background: #ff0000;
+      color: white;
+      border: none;
+      padding: 14px 30px;
+      cursor: pointer;
+      font-size: 1.2em;
+      font-weight: 700;
+      border-radius: 8px;
+      transition: background 0.25s ease;
+      box-shadow: 0 0 10px #ff4444;
+      user-select: none;
+    }
+    button:hover {
+      background: #ff5555;
+      box-shadow: 0 0 20px #ff7777;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+      user-select: text;
+    }
+
+    a {
+      color: #ff8888;
+      user-select: text;
+    }
+    a:hover {
+      color: #ff4444;
+    }
+
+    /* Propaganda style table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: linear-gradient(135deg, #660000dd 0%, #990000ff 100%);
+      border: 4px solid #ff0000;
+      border-radius: 15px;
+      box-shadow: 0 0 30px #ff0000bb;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      user-select: text;
+    }
+
+    th, td {
+      padding: 18px 20px;
+      text-align: left;
+      color: #fff;
+      border-bottom: 3px solid #ff4444;
+      user-select: text;
+      vertical-align: middle;
+    }
+
+    th {
+      font-size: 1.3em;
+      background: #ff0000dd;
+      text-shadow: 1px 1px 2px #660000cc;
+      user-select: text;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Scrollbar for smaller screens */
+    @media (max-width: 600px) {
+      body {
+        padding: 15px 10px;
+        max-width: 100%;
+      }
+
+      table, th, td {
+        font-size: 0.9em;
+      }
+    }
+
+    /* Music Button & Animation */
+    #musicBtn {
+      background: #ff0000;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1.2em;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ff4444;
+      user-select: none;
+      display: inline-block;
+      margin-bottom: 20px;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    #musicBtn:hover {
+      background: #ff5555;
+      box-shadow: 0 0 20px #ff7777;
+    }
+    #musicBtn.playing {
+      animation: pulse 1.2s infinite;
+      box-shadow: 0 0 25px #ff2222, 0 0 40px #ff0000;
+    }
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 15px #ff4444;
+      }
+      50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 30px #ff0000;
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 15px #ff4444;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Marquee Bar -->
+<div id="marqueeBar">
+  <div id="marqueeText">
+    WELCOME TO NEINCOIN &nbsp; • &nbsp; SAY NEIN TO BORING COINS &nbsp; • &nbsp; NEIN IS THE NEW YES &nbsp; • &nbsp; JOIN THE NEIN REVOLUTION &nbsp; • &nbsp; HAVE FUN WITH NEIN &nbsp; • &nbsp; THE POWER OF NEIN
+  </div>
+</div>
+
+<header>
+  <h1>NeinCoin</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#why">Why Nein?</a>
+    <a href="#buy">How to Buy</a>
+  </nav>
+</header>
+
+<section id="hero">
+  <button id="musicBtn">Play NEIN music</button>
+  <table>
+    <thead>
+      <tr><th colspan="2">NEIN Propaganda Posters</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="width:150px;">
+          <img src="https://i.imgur.com/PVEWtCr.jpeg" alt="Nein Poster 1" style="width: 140px; border-radius: 8px; box-shadow: 0 0 15px #ff0000cc;">
+        </td>
+        <td>
+          A striking propaganda-style poster with bold red and black tones, symbolizing the defiant spirit of NeinCoin and its message of resistance.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="https://i.imgur.com/eIzh7wb.jpeg" alt="Nein Poster 2" style="width: 140px; border-radius: 8px; box-shadow: 0 0 15px #ff0000cc;">
+        </td>
+        <td>
+          A bold propaganda-style poster featuring a stern man pointing up, declaring: "ONE WORD. ONE MOVEMENT. NEIN."
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="https://i.imgur.com/eBoh137.jpeg" alt="Nein Poster 3" style="width: 140px; border-radius: 8px; box-shadow: 0 0 15px #ff0000cc;">
+        </td>
+        <td>
+          A parody propaganda poster featuring a stern old man with a defiant stare and raised fist, paired with the bold message: “NOT TODAY. NOT TOMORROW. JUST NEIN.”
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="https://i.imgur.com/9lWNFfh.jpeg" alt="Nein Poster 5" style="width: 140px; border-radius: 8px; box-shadow: 0 0 15px #ff0000cc;">
+        </td>
+        <td>
+          A stern-faced man in a suit and bowler hat crosses his arms under three stars on a red background. The bold text reads: “JOIN US. OR DON’T. WE DON’T CARE. NEINCOIN.”
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="https://i.imgur.com/zS3199L.png" alt="Nein Poster 6" style="width: 140px; border-radius: 8px; box-shadow: 0 0 15px #ff0000cc;">
+        </td>
+        <td>
+          A satire on big promises with no results. NeinCoin mocks failed execution.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="about">
+  <h2>About NeinCoin</h2>
+  <p>NeinCoin originated from a simple yet powerful idea: to create a meme coin that refuses to follow the crowd. Named after the German word for "nein", NeinCoin embodies a spirit of playful defiance and clever irreverence. It’s for those who want to take crypto less seriously and enjoy the ride without the stress of hype, speculation, or complicated mechanics.</p>
+  <p>Our mission is to foster a welcoming and chill community where humor and honesty are key. NeinCoin offers simple tokenomics that anyone can understand  no tricks, no smoke and mirrors. Just a straightforward, decentralized crypto token that says “nein” to trends and “yes” to fun and authenticity.</p>
+  <p>Join us and be part of a movement that celebrates the power of “nein” in a noisy world. NeinCoin is more than a coin it’s a statement, a culture, and a lifestyle.</p>
+</section>
+
+<section id="why">
+  <h2>Why Nein?</h2>
+  <p>NeinCoin rejects the noise and overcomplication of traditional cryptocurrencies. It’s designed for those who value simplicity, humor, and community spirit. In a world saturated with hype and trends, NeinCoin proudly says “nein” to stress, to manipulation, and to boring tokens.</p>
+  <p>Our community-driven approach and meme-inspired identity make NeinCoin a refreshing alternative where you can be part of a fun, rebellious movement.</p>
+</section>
+
+<section id="buy">
+  <h2>How to Buy</h2>
+  <table>
+<div style="display: flex; align-items: center; margin-top: 20px; gap: 15px; background: rgba(102, 0, 0, 0.85); padding: 15px 20px; border-radius: 15px; box-shadow: 0 0 20px #990000cc; color: #ff3333; font-weight: 700; font-size: 1.5em; user-select: text;">
+  <img src="https://i.imgur.com/gAIz3qy.jpeg" alt="NeinCoin Coin" style="width: 100px; border-radius: 10px; box-shadow: 0 0 15px #ff0000cc;" />
+  <span>= 1 say "nein"</span>
+</div>
+
+    <thead>
+      <tr><th>Step</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1. Get a Phantom Wallet</td>
+        <td>Download and install the Phantom Wallet browser extension or mobile app, a secure wallet for Solana-based tokens.</td>
+      </tr>
+      <tr>
+        <td>2. Fund your Wallet</td>
+        <td>Deposit SOL or USDC into your Phantom Wallet to prepare for buying $NEIN tokens.</td>
+      </tr>
+      <tr>
+        <td>3. Connect to PumpFun</td>
+        <td>Visit the PumpFun decentralized exchange and connect your Phantom Wallet.</td>
+      </tr>
+      <tr>
+        <td>4. Buy $NEIN Token</td>
+        <td>Locate $NEIN on PumpFun and execute your purchase with your connected wallet.</td>
+      </tr>
+    </tbody>
+  </table>
+<section id="chart" style="margin-top: 40px;">
+  <h2>Chart</h2>
+  <button
+    onclick="window.open('https://pump.fun/coin/Fp4VW4sgdg7PeVUVjPTLrBVxd651XUp9gp7SCbhvpump', '_blank')"
+    style="
+      background: #ff0000;
+      color: white;
+      border: none;
+      padding: 14px 30px;
+      cursor: pointer;
+      font-size: 1.2em;
+      font-weight: 700;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #ff4444;
+      transition: background 0.25s ease;
+      user-select: none;
+    "
+    onmouseover="this.style.background='#ff5555'; this.style.boxShadow='0 0 20px #ff7777';"
+    onmouseout="this.style.background='#ff0000'; this.style.boxShadow='0 0 10px #ff4444';"
+  >
+    View NeinCoin Chart on PumpFun
+  </button>
+</section>
+
+</section>
+
+<footer>
+  <p>&copy; 2025 NeinCoin. All rights reserved.</p> 
+ <div style="margin-top: 15px;">
+    <a href="https://x.com/NEINCOIN?s=08" target="_blank" style="display: inline-block;">
+      <img src="https://i.imgur.com/O5ZA47H.jpeg" alt="NeinCoin X" style="width: 32px; height: 32px; border-radius: 5px; box-shadow: 0 0 8px #ff0000;">
+    </a>
+  </div>
+
+</footer>
+
+<audio id="neinAudio" src="neincoin.mp3"></audio>
+
+<script>
+  const musicBtn = document.getElementById('musicBtn');
+  const audio = document.getElementById('neinAudio');
+
+  musicBtn.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      musicBtn.classList.add('playing');
+      musicBtn.textContent = 'Pause NEIN music';
+    } else {
+      audio.pause();
+      musicBtn.classList.remove('playing');
+      musicBtn.textContent = 'Play NEIN music';
+    }
+  });
+
+  audio.addEventListener('ended', () => {
+    musicBtn.classList.remove('playing');
+    musicBtn.textContent = 'Play NEIN music';
+  });
+</script>
+
+</body>
+</html> 
